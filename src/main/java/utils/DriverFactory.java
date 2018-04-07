@@ -41,7 +41,7 @@ public class DriverFactory {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "AutomationDevice");
         desiredCapabilities.setCapability("appActivity", "com.facebook.katana.LoginActivity");
         desiredCapabilities.setCapability("appPackage", "com.facebook.katana");
-//        desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+        desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, true);
         desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60000);
     }
 

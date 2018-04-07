@@ -18,8 +18,9 @@ public class FaceBookAppLoginPage extends BaseAppPage {
     }
 
     public void launchAndLoginToFacebookApp(String username, String password) {
-        sleepInSeconds(5);
+        sleepInSeconds(7);
         loginEmail.sendKeys(username);
+        loginPassword.click();
         loginPassword.sendKeys(password);
         loginButton.click();
     }

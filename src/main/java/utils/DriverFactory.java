@@ -2,6 +2,7 @@ package utils;
 import io.appium.java_client.android.AndroidDriver;
 import io.appium.java_client.remote.MobileCapabilityType;
 import io.appium.java_client.service.local.AppiumDriverLocalService;
+import io.appium.java_client.service.local.AppiumServiceBuilder;
 import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.io.File;
@@ -40,14 +41,16 @@ public class DriverFactory {
         desiredCapabilities.setCapability(MobileCapabilityType.DEVICE_NAME, "AutomationDevice");
         desiredCapabilities.setCapability("appActivity", "com.facebook.katana.LoginActivity");
         desiredCapabilities.setCapability("appPackage", "com.facebook.katana");
+//        desiredCapabilities.setCapability(MobileCapabilityType.FULL_RESET, false);
+        desiredCapabilities.setCapability(MobileCapabilityType.NEW_COMMAND_TIMEOUT, 60000);
     }
 
     public static void startAppiumServer() {
-        service = AppiumDriverLocalService.buildDefaultService();
+        service = new AppiumServiceBuilder().usingPort(4723).build();
         service.start();
     }
 
-    static void stopAppiumServer() {
+    public static void stopAppiumServer() {
         if (service != null) {
             service.stop();
         } else

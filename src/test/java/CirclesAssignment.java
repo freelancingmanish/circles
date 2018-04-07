@@ -1,10 +1,12 @@
 import org.testng.annotations.Test;
 import pages.FaceBookAppLoginPage;
+import pages.FbAppProfilePage;
 
 import static pages.CirclesWebLoginPage.*;
 import static pages.FaceWebHomePage.navigateToHomeAndPostAComment;
 import static pages.FacebookWebLoginPage.loginToFacebook;
 import static utils.DriverFactory.startAppiumServer;
+import static utils.DriverFactory.stopAppiumServer;
 
 
 public class CirclesAssignment {
@@ -32,9 +34,7 @@ public class CirclesAssignment {
     public void loginToFacebookAppAndVerifyCommentTest() {
         startAppiumServer();
         new FaceBookAppLoginPage().launchAndLoginToFacebookApp("olamanishv@gmail.com", "M@n!s#1988");
-
-        /*
-        Leaving it incomplete as interaction with facebook app via automation is disabled
-         */
+        new FbAppProfilePage().navigateToProfilePageAndVerifyText(message);
+        stopAppiumServer();
     }
 }

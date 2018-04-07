@@ -19,5 +19,7 @@ public class FaceWebHomePage extends WebSupport {
         element.sendKeys(message);
         driver.findElement(By.xpath(".//span[contains(text(), 'Post')]")).click();
         driver.findElement(By.className("_1mf7")).click();
+        sleep(6000);
+        driver.quit();
     }
 }
